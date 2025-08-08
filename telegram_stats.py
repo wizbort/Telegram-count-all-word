@@ -9,9 +9,9 @@ import json
 import os
 
 # Данные для авторизации
-api_id = '21331329'
-api_hash = 'f058ba68285d181172d6847e2a0ab60d'
-chat_id = 613525471
+api_id = 'PASTE'
+api_hash = 'PASTE'
+chat_id = PASTE
 
 # Инициализация клиента
 client = TelegramClient('session_name', api_id, api_hash)
@@ -158,16 +158,7 @@ def load_messages(filename='count/messages.json'):
 async def analyze_chat():
     # Словарь для хранения статистики
     stats = {
-        'мау': 0,
-        'я люблю тебя': 0,
-        'люблю тебя': 0,
-        'солнце': 0,
-        'солнышко': 0,
-        'ева': 0,
-        'евушка': 0,
-        'яков': 0,
-        'яша': 0,
-        'яшечка': 0
+        'Hello': 0,
     }
     
     # Счетчик для всех слов
@@ -272,19 +263,7 @@ async def analyze_chat():
             if message.get('text'):
                 text_messages += 1
                 text = message['text'].lower()
-                
-                # Подсчет специальных фраз
-                stats['мау'] += text.count('мау')
-                stats['я люблю тебя'] += text.count('я люблю тебя')
-                stats['люблю тебя'] += text.count('люблю тебя')
-                stats['солнце'] += text.count('солнце')
-                stats['солнышко'] += text.count('солнышко')
-                stats['ева'] += text.count('ева')
-                stats['евушка'] += text.count('евушка')
-                stats['яков'] += text.count('яков')
-                stats['яша'] += text.count('яша')
-                stats['яшечка'] += text.count('яшечка')
-                
+                                
                 # Подсчет всех слов
                 words = re.findall(r'\b\w+\b', text)
                 all_words.update(words)
